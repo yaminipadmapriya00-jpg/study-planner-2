@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner | My Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+<div class="app">
+    <aside class="sidebar">
+        <div class="brand">✦ StudyFlow</div>
+        <p class="side-label">WORKSPACE</p>
+        <a class="nav active" href="#dashboard">▦ Dashboard</a>
+        <a class="nav" href="#tasks">✓ My Tasks</a>
+        <a class="nav" href="#weekly">▦ Weekly Plan</a>
+        <a class="nav" href="#pomodoro">◷ Focus Timer</a>
+        <a class="nav" href="#progress">▥ Progress</a>
+        <div class="side-note">Small steps every day<br>lead to big results ✨</div>
+    </aside>
+
+    <main class="main" id="dashboard">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+                <h1>Good evening, Student! 👋</h1>
+                <p class="muted">Make today count. One task at a time.</p>
+            </div>
+            <div class="today-pill" id="todayDate"></div>
+        </header>
+
+        <section class="stats">
+            <article class="stat-card">
+                <span class="stat-icon purple">▣</span>
+                <div><p>Total tasks</p><h2 id="totalCount">0</h2></div>
+            </article>
+            <article class="stat-card">
+                <span class="stat-icon green">✓</span>
+                <div><p>Completed</p><h2 id="completedCount">0</h2></div>
+            </article>
+            <article class="stat-card">
+                <span class="stat-icon orange">◷</span>
+                <div><p>Remaining</p><h2 id="remainingCount">0</h2></div>
+            </article>
+            <article class="stat-card">
+                <span class="stat-icon pink">↗</span>
+                <div><p>Overall progress</p><h2 id="overallPercent">0%</h2>
+                <div class="progress-track"><div id="overallBar" class="progress-fill"></div></div></div>
+            </article>
+        </section>
+
+        <section class="panel" id="addTask">
+            <div class="section-heading">
+                <div><span class="heading-icon">＋</span><h2>Add a study task</h2></div>
+            </div>
+            <form id="taskForm" class="task-form">
+                <label>Task name
+                    <input id="taskTitle" maxlength="150" placeholder="e.g. Revise DBMS normalization" required>
+                </label>
+                <label>Subject
+                    <select id="taskSubject" required>
+                        <option value="">Choose a subject</option>
+                        <option>DBMS</option><option>DS</option>
+                        <option>JAVA-OOPS</option><option>DMS</option>
+                        <option>AI</option><option>DW</option><option>DLD</option>
+                    </select>
+                </label>
+                <label>Due date
+                    <input id="taskDate" type="date">
+                </label>
+                <button class="primary-btn" type="submit">＋ Add task</button>
+            </form>
+            <p id="formMessage" class="message" role="status"></p>
+        </section>
+
+        <section class="panel" id="tasks">
+            <div class="section-heading">
+                <div><span class="heading-icon">✓</span><h2>My tasks</h2></div>
+                <span class="muted" id="taskSummary">Loading tasks...</span>
+            </div>
+            <div id="taskList" class="task-list">
+                <p class="empty">Loading your study tasks...</p>
+            </div>
+        </section>
+
+        <section class="panel" id="progress">
+            <div class="section-heading">
+                <div><span class="heading-icon">▥</span><h2>Subject progress</h2></div>
+            </div>
+            <div id="subjectProgress" class="subject-grid"></div>
+        </section>
+    </main>
+
+    <aside class="rightbar">
+        <section class="panel" id="weekly">
+            <div class="section-heading"><h2>Weekly timetable</h2></div>
+            <p class="muted small">Suggested study sessions</p>
+            <div class="schedule">
+                <div><b>MON</b><span class="blue">9–10 AM · DBMS</span></div>
+                <div><b>TUE</b><span class="pink-bg">9–10 AM · JAVA-OOPS</span></div>
+                <div><b>WED</b><span class="green-bg">9–10 AM · AI</span></div>
+                <div><b>THU</b><span class="blue">9–10 AM · DLD</span></div>
+                <div><b>FRI</b><span class="pink-bg">9–10 AM · DS</span></div>
+                <div><b>SAT</b><span class="green-bg">9–10 AM · DMS</span></div>
+                <div><b>SUN</b><span class="purple-bg">Revision · DW</span></div>
+            </div>
+            <p class="muted small">Edit these sample sessions in index.html to match your classes.</p>
+        </section>
+
+        <section class="panel timer-panel" id="pomodoro">
+            <div class="section-heading"><h2>Focus timer</h2></div>
+            <p class="muted small">Pomodoro · 25 minutes</p>
+            <div class="timer-ring"><span id="timerDisplay">25:00</span>
+                <small id="timerLabel">Ready to focus</small></div>
+            <button id="startTimer" class="primary-btn full">▶ Start focus</button>
+            <button id="resetTimer" class="secondary-btn full">↻ Reset timer</button>
+            <p id="timerMessage" class="message" role="status"></p>
+        </section>
+    </aside>
+</div>
+ <script src="script.js"></script>
+</body>
+</html>
